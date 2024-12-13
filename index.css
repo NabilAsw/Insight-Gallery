@@ -1,0 +1,280 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    margin: 0;
+    overflow: hidden; /* Hilangkan scrolling */
+    position: relative;
+    height: 100vh;
+    color: black;
+    transition: background-color 0.4s, color 0.4s;
+    background-color: #f1efe9;
+}
+
+.navbar {
+    display: flex;
+    position: fixed;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    filter: drop-shadow(0px 0px 100px #f1efe9);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f1efe9d2;
+    backdrop-filter: blur(3px);
+    width: 100%;
+    z-index: 3;
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+    color: #4d4d4c;
+}
+
+.company-name {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.logo-container {
+    position: relative;
+    width: 100px;
+    height: 60px;
+    padding-right: 100px;
+}
+
+.logo {
+    position: absolute;
+    width: 100px;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.logo.active {
+    opacity: 1;
+}
+
+.navbar-right {
+    cursor: pointer;
+    margin-right: 40px;
+}
+
+.order{
+    text-decoration: none;
+    padding: 15px;
+    color: #f1efe9;
+    font-size: 15px;
+    position: relative;
+    bottom: 7px;
+    background-color: rgba(85, 185, 85, 0.655);
+    transition: 0.2s ease;
+    border-radius: 3px;
+}
+
+.order:hover {
+    background-color: rgba(91, 169, 91, 0.737);
+}
+
+.foto-header {
+    width: 40px;
+    height: 40px;
+}
+
+.action-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: absolute;
+    bottom: 20px; /* Posisikan di bawah dengan jarak aman */
+    width: 100%; /* Agar elemen tetap terpusat */
+    z-index: 4;
+}
+
+.action-button[style*="visibility: hidden"] {
+    opacity: 0; /* Saat disembunyikan, transparan */
+}
+
+.action-button a {
+    color: #4d4d4c;
+    text-decoration: none;
+    font-size: 15px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 34px;
+    background: #f1efe9;
+    padding: 15px 25px;
+    transition: 0.2s ease;
+    margin-top: 10px; /* Jarak antara teks dan tombol */
+}
+
+.action-button a:hover {
+    background-color: #ADD8E6;
+    filter: drop-shadow(0px 0px 10px #ADD8E6);
+    color: #f1efe9;
+}
+
+@media (max-width: 600px) {
+    .logo-container{
+        display: none;
+    }
+
+    .action-button a {
+        font-size: 5px;
+    }
+
+    .action-button h2 {
+        font-size: 15px;
+    }
+
+    .action-button {
+        flex-wrap: wrap;
+    }
+}
+
+.sub-judul {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #f1efe9;
+    filter: drop-shadow(0px 0px 30px #aeaca8);
+    font-size: 20px;
+    text-align: center; /* Agar teks berada di tengah */
+}
+
+.background {
+    height: 100vh; /* Tinggi sesuai viewport */
+    width: 100%;
+    z-index: 1;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+@media (max-width: 768px) {
+
+    .sub-judul {
+        font-size: 16px; /* Sesuaikan ukuran teks */
+    }
+
+    .action-button a {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+}
+
+.btn{
+    color: #4d4d4c;
+    transition: 0.2s ease;
+}
+
+.btn:hover {
+    color: #ADD8E6;
+}
+
+.sidebar { 
+    height: 100vh; 
+    width: 0; /* Awalnya disembunyikan */
+    position: fixed; 
+    top: 0; 
+    right: 0; 
+    background-color: #ffffffef; 
+    filter: drop-shadow(0px 0px 10px #e1e1e1);
+    overflow-x: hidden; 
+    overflow-y: auto;
+    transition: width 0.3s ease; /* Transisi mulus saat membuka */
+    padding-top: 60px; 
+    z-index: 10;
+} 
+
+.sidebar a { 
+    padding: 10px 15px; 
+    text-decoration: none; 
+    font-size: 17px; 
+    color: #ADD8E6; 
+    display: block; 
+    transition: 0.2s; 
+} 
+
+.sidebar a:hover { 
+    background-color: #f3f1ec; 
+} 
+
+.closebtn { 
+    position: absolute; 
+    top: 10px; 
+    right: 40px; 
+    font-size: 36px; 
+}
+
+/* Layar loading */
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f1efe9;
+    z-index: 9999;
+    animation: change-bg 5s infinite;
+}
+
+/* Keyframes untuk perubahan warna */
+@keyframes change-bg {
+    0% {
+        background-color: #f1efe9; /* Warna awal */
+    }
+    25% {
+        background-color: #ffadad; /* Warna kedua */
+    }
+    50% {
+        background-color: #ffd6a5; /* Warna ketiga */
+    }
+    75% {
+        background-color: #caffbf; /* Warna keempat */
+    }
+    100% {
+        background-color: #f1efe9; /* Kembali ke warna awal */
+    }
+}
+
+/* Loader */
+.loader {
+    width: 60px;
+    aspect-ratio: 2;
+    --_g: no-repeat radial-gradient(circle closest-side, #000 90%, #0000);
+    background:
+        var(--_g) 0% 50%,
+        var(--_g) 50% 50%,
+        var(--_g) 100% 50%;
+    background-size: calc(100% / 3) 50%;
+    animation: l3 1s infinite linear; /* Animasi loader */
+}
+
+/* Animasi loader */
+@keyframes l3 {
+    20% { background-position: 0% 0%, 50% 50%, 100% 50%; }
+    40% { background-position: 0% 100%, 50% 0%, 100% 50%; }
+    60% { background-position: 0% 50%, 50% 100%, 100% 0%; }
+    80% { background-position: 0% 50%, 50% 50%, 100% 100%; }
+}
+
+/* Teks bawah loader */
+#loading-text {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #333;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    animation: fade-in-out 3s infinite;
+}
+
+/* Animasi teks */
+@keyframes fade-in-out {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+}

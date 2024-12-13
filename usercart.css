@@ -1,0 +1,287 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    color: black;
+    transition: background-color 0.4s, color 0.4s;
+    background-color: #f1efe9;
+}
+
+.navbar {
+    display: flex;
+    position: fixed;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    filter: drop-shadow(0px 0px 100px #f1efe9);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f1efe9d2;
+    backdrop-filter: blur(3px);
+    width: 100%;
+    z-index: 3;
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+    color: #4d4d4c;
+}
+
+.company-name {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.logo-container {
+    position: relative;
+    width: 100px;
+    height: 60px;
+    padding-left: 50px;
+}
+
+.logo {
+    position: absolute;
+    width: 100px;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.logo.active {
+    opacity: 1;
+}
+
+.navbar-right {
+    cursor: pointer;
+    margin-right: 40px;
+}
+
+@media (max-width: 600px) {
+    .logo-container{
+        display: none;
+    }
+}
+
+.btn{
+    color: #4d4d4c;
+    transition: 0.2s ease;
+    padding-right: 10px;
+}
+
+.btn:hover {
+    color: #ADD8E6;
+}
+
+.sidebar { 
+    height: 100vh; 
+    width: 0; /* Awalnya disembunyikan */
+    position: fixed; 
+    top: 0; 
+    right: 0; 
+    background-color: #ffffffbf; 
+    filter: drop-shadow(0px 0px 10px #e1e1e1);
+    overflow-x: hidden; 
+    overflow-y: auto;
+    transition: width 0.3s ease; /* Transisi mulus saat membuka */
+    padding-top: 60px; 
+    z-index: 10;
+} 
+
+.sidebar a { 
+    padding: 10px 15px; 
+    text-decoration: none; 
+    font-size: 17px; 
+    color: #ADD8E6; 
+    display: block; 
+    transition: 0.2s; 
+} 
+
+.sidebar a:hover { 
+    background-color: #f3f1ec; 
+} 
+
+.closebtn { 
+    position: absolute; 
+    top: 10px; 
+    right: 40px; 
+    font-size: 36px; 
+}
+
+.status-keranjang {
+    padding: 120px 40px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #474747;
+    font-size: 30px;
+}
+
+.container-cart-product {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.jenis-produk h2 {
+    text-align: center;
+    justify-content: center;
+    color: #f1efe9;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.jenis-produk {
+    padding: 50px;
+    border-radius: 10px;
+    background: #193454;
+    box-shadow: inset 20px 20px 60px #152c47,
+                inset -20px -20px 60px #1d3c61;
+}
+
+.cart-simbols {
+    color: #f1efe9;
+}
+
+.submit-checkout {
+    display: flex;
+    justify-content: space-between;
+    margin: 40px 40px;
+}
+
+.submit-checkout a {
+    text-decoration: none;
+    color: #474747;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
+}
+
+@media (max-width: 444px) {
+    .back-cart {
+        font-size: 10px;
+    }
+    .forward-cart {
+        font-size: 10px;
+    }
+}
+
+.back-cart {
+    padding: 10px;
+    border: 2px solid #474747;
+    transition: 0.2s ease-in;
+}
+
+.back-cart:hover {
+    background-color: #f4eeee;
+    filter: drop-shadow(0px 0px 10px #474747);
+}
+
+.forward-cart {
+    padding: 10px;
+    border: 2px solid;
+    border-image: linear-gradient(to right, #193454, #228B22) 1;
+    transition: 0.2s ease-in;
+}
+
+.forward-cart:hover {
+    background-color: #f4eeee;
+    filter: drop-shadow(0px 0px 10px #193454);
+}
+
+.footer {
+    display: flex;
+    justify-content: space-around;
+    padding: 50px;
+    background-color: #dcdad4;
+    flex-wrap: wrap;
+}
+
+.footer-name {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    padding: 35px 0px 0px 0px;
+    background: linear-gradient(45deg, #000000, #3d523d, #228B22);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.footer p{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #474747;
+    max-width: 330px;
+    text-align: center;
+}
+
+.social-media svg {
+    padding: 35px 0px 0px 0px;
+}
+
+/* Layar loading */
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f1efe9;
+    z-index: 9999;
+    animation: change-bg 5s infinite;
+}
+
+/* Keyframes untuk perubahan warna */
+@keyframes change-bg {
+    0% {
+        background-color: #f1efe9; /* Warna awal */
+    }
+    25% {
+        background-color: #ffadad; /* Warna kedua */
+    }
+    50% {
+        background-color: #ffd6a5; /* Warna ketiga */
+    }
+    75% {
+        background-color: #caffbf; /* Warna keempat */
+    }
+    100% {
+        background-color: #f1efe9; /* Kembali ke warna awal */
+    }
+}
+
+/* Loader */
+.loader {
+    width: 60px;
+    aspect-ratio: 2;
+    --_g: no-repeat radial-gradient(circle closest-side, #000 90%, #0000);
+    background:
+        var(--_g) 0% 50%,
+        var(--_g) 50% 50%,
+        var(--_g) 100% 50%;
+    background-size: calc(100% / 3) 50%;
+    animation: l3 1s infinite linear; /* Animasi loader */
+}
+
+/* Animasi loader */
+@keyframes l3 {
+    20% { background-position: 0% 0%, 50% 50%, 100% 50%; }
+    40% { background-position: 0% 100%, 50% 0%, 100% 50%; }
+    60% { background-position: 0% 50%, 50% 100%, 100% 0%; }
+    80% { background-position: 0% 50%, 50% 50%, 100% 100%; }
+}
+
+/* Teks bawah loader */
+#loading-text {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #333;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    animation: fade-in-out 3s infinite;
+}
+
+/* Animasi teks */
+@keyframes fade-in-out {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+}

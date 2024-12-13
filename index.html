@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css" />
+    <link rel="icon" href="asset/vlt3.jpg" />
+    <title>Insight Gallery | Design Interior</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-left">
+            <span class="company-name" style="color: #228B22;">Insight</span> <span class="company-name">Gallery</span>
+        </div>
+    
+        <div class="logo-container">
+            <img src="asset/logo-onna-blue-1.png" class="logo active" alt="Logo 1">
+            <img src="asset/tacorporation.png" class="logo" alt="Logo 3">
+            <img src="asset/sp2.png" class="logo" alt="Logo 4">
+        </div>
+    
+        <div class="navbar-right">
+            <svg class="w-6 h-6 text-gray-800 dark:text-white btn" onclick="toggleSidebar()" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h14"/>
+            </svg>
+            <div id="mySidebar" class="sidebar"> 
+                <a href="javascript:void(0)" class="closebtn" onclick="toggleSidebar()">×</a> 
+                <a href="landingpage.html">Beranda</a> 
+                <a href="about.html">Tentang</a> 
+                <a href="maintenanceweb.html">Pelayanan</a> 
+                <a href="maintenanceweb.html">Kontak</a> 
+            </div>
+        </div>
+    </nav>
+
+    <img src="asset/pexels-cottonbro-4065170.jpg" class="background"/>
+
+    <div class="action-button">
+        <h2 class="sub-judul">Kreativitas Tanpa Batas untuk Hunian Anda</h2>
+        <a href="landingpage.html"><b>Mulai Mendekorasi</b></a>
+    </div>
+
+    <div id="loading-screen">
+        <div class="loader"></div>
+        <p id="loading-text">Hal Istimewa Sedang Disiapkan...</p>
+    </div>    
+    <script src="script.js" defer></script>
+</body>
+</html>
